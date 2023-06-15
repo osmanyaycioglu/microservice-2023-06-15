@@ -10,6 +10,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>node-discovery</module>
+		<module>node-configuration</module>
 	</modules>
 
 	<properties>
