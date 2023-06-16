@@ -13,9 +13,8 @@ import org.springframework.web.context.annotation.SessionScope;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/kitchen/reservation")
 //@RequestScope
-public class KitchenReservationController {
+public class KitchenReservationController implements IKitchenReservationController {
 
     @Autowired
     private KitchenService kitchenService;
@@ -23,12 +22,10 @@ public class KitchenReservationController {
     @Value("${server.port}")
     private Integer port;
 
-    @PostMapping("/add")
     public String addReservation(@RequestBody Reservation reservation){
         return kitchenService.addReservation(reservation) + " port : " + port ;
     }
 
-    @GetMapping("/get/all/reservations")
     public Reservations getReservations() {
         return kitchenService.getAllReservations();
 
